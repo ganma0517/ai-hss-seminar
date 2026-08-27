@@ -438,6 +438,9 @@
     .cmp,.usertype{min-width:max-content}
     /* 表格格子不換行 → 表格變寬 → 可橫向拖動（不再被截斷） */
     .scrollx table td,.scrollx table th{white-space:nowrap}
+    /* 參考/來源 pill：改為整行可左右拖動，並留空間避開右下角頁碼/計時 HUD */
+    .skillsrc{display:block; width:100%; max-width:100%; white-space:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:12px; margin-bottom:5vh}
+    .skillsrc a{white-space:nowrap}
     /* 卡片列改直排／兩欄 */
     .two,.choices,.kw.grid2,.personas,.appl,.mines{grid-template-columns:1fr}
     .skills-5{grid-template-columns:repeat(2,1fr)}
