@@ -419,8 +419,15 @@
   .tleaves{display:flex; gap:.8vw; margin-top:1.1vh}
   .tleaf{flex:1; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:.9vh .8vw; font-weight:700; text-align:center; font-size:1rem}
   .tleaf small{display:block; font-weight:500; color:var(--ink-soft); font-size:.8rem; margin-top:.2em}
+  .scrollx{overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%}
   @media(max-width:760px){
-    .slide{padding:6vh 6vw 13vh; overflow-y:auto}
+    .slide{padding:9vh 6vw 14vh; overflow-y:auto; justify-content:flex-start}
+    .ai-out,.scrollx{overflow-x:auto; -webkit-overflow-scrolling:touch}
+    .demo table,.cmp,.usertype{min-width:max-content}
+    .personas,.appl,.skills-5{grid-template-columns:1fr}
+    .mines,.choices{grid-template-columns:1fr}
+    .quizset .qopts{flex-wrap:wrap}
+    .wf .wfg .lb{margin-left:0}
     .two,.choices,.kw.grid2{grid-template-columns:1fr}
     /* 橫向圖表在手機改直向堆疊 */
     .flow,.stages,.tbranchrow,.mcphub,.spectrum,.map,.graph .grow,.appl{flex-direction:column; display:flex}
@@ -1487,11 +1494,33 @@
       return;
     }
   });
-  var x0=null;
-  document.addEventListener('touchstart',function(e){ x0 = e.touches[0].clientX; },{passive:true});
+  // 把所有表格包進可橫向捲動的容器（手機不卡）
+  document.querySelectorAll('.slide table').forEach(function(t){
+    if(t.parentElement && t.parentElement.classList.contains('scrollx')) return;
+    var w=document.createElement('div'); w.className='scrollx';
+    t.parentNode.insertBefore(w,t); w.appendChild(t);
+  });
+  // 滑動起點若落在可橫向捲動的元素上（且還能捲），就讓它捲動、不翻頁
+  function inHScroll(el){
+    for(var n=el; n && n!==document.body; n=n.parentElement){
+      if(n.scrollWidth - n.clientWidth > 4){
+        var ov=getComputedStyle(n).overflowX;
+        if(ov==='auto'||ov==='scroll') return true;
+      }
+    }
+    return false;
+  }
+  var x0=null, y0=null, lock=false;
+  document.addEventListener('touchstart',function(e){
+    x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+    lock = inHScroll(e.target);
+  },{passive:true});
   document.addEventListener('touchend',function(e){
-    if(x0===null) return; var dx = e.changedTouches[0].clientX - x0;
-    if(Math.abs(dx)>60){ dx<0 ? next() : prev(); } x0=null;
+    if(x0===null) return;
+    var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    // 只有明顯水平、非在可捲元素上、且水平大於垂直，才翻頁
+    if(!lock && Math.abs(dx)>60 && Math.abs(dx) > Math.abs(dy)*1.4){ dx<0 ? next() : prev(); }
+    x0=null; y0=null; lock=false;
   },{passive:true});
   var ovgrid = document.getElementById('ovgrid');
   slides.forEach(function(s,n){
