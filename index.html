@@ -430,7 +430,7 @@
   .scrollx{overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%}
   @media(max-width:760px){
     html,body{overflow-x:hidden}
-    .slide{padding:9vh 5vw 9vh; overflow-y:auto; overflow-x:hidden; justify-content:flex-start; align-items:stretch}
+    .slide{padding:9vh 5vw 22vh; overflow-y:auto; overflow-x:hidden; justify-content:flex-start; align-items:stretch}
     /* 讓所有巢狀 flex/block 容器可縮到螢幕寬，寬表格才會出現橫向捲軸 */
     .slide *{min-width:0}
     .scrollx{width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch}
@@ -440,7 +440,7 @@
     .scrollx table td,.scrollx table th{white-space:nowrap}
     /* 參考/來源 pill：改為整行可左右拖動，並留空間避開右下角頁碼/計時 HUD */
     /* 參考/來源：改為整段可換行、完整顯示（不橫向捲、不截斷），長網址自動斷行 */
-    .skillsrc{display:block; width:100%; max-width:100%; white-space:normal; overflow:visible; line-height:1.6; border-radius:12px; margin-top:2vh; margin-bottom:7vh; word-break:break-word; overflow-wrap:anywhere}
+    .skillsrc{display:block; width:100%; max-width:100%; white-space:normal; overflow:visible; line-height:1.6; border-radius:12px; margin-top:2vh; margin-bottom:2vh; word-break:break-word; overflow-wrap:anywhere}
     .skillsrc a{white-space:normal; word-break:break-all; overflow-wrap:anywhere}
     /* 卡片列改直排／兩欄 */
     .two,.choices,.kw.grid2,.personas,.appl,.mines{grid-template-columns:1fr}
