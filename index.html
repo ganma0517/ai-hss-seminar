@@ -22,6 +22,8 @@
   /* 避免孤字：標題平衡分行、內文避免結尾單字落單 */
   h1,h2,h3{text-wrap:balance}
   p,li,.lead,.sub,.d,.u,.a,.cnote,.donut-c .lb,.qr-box .tx,.steps .bd,.it,.bd,.fb,.sh,.eg,.cmp-note,.ai-out,.verdict,.drawback li,.sysp,.tl span,.news .s,.news .h{text-wrap:pretty; overflow-wrap:break-word}
+  /* 內文兩端對齊 */
+  .lead,.sub,ul.points li,.ai-out,.verdict,.quizres,.mineverdict,.drawback li,.qexp,.eg,.two .col p,.news .h{text-align:justify; text-justify:inter-character}
   .big-quote{text-wrap:balance}
   /* 易讀性：內文行高與字距 */
   ul.points li{line-height:1.75}
@@ -331,6 +333,12 @@
   .wfg .lb{color:var(--warn); font-weight:600; margin-left:auto; white-space:nowrap}
   .wfg.branch{color:var(--ink); font-weight:600}
   .wfstop{background:var(--warn-soft); border:1px solid #c0392b40; border-left:4px solid var(--warn); border-radius:8px; padding:.5vh .9vw; font-size:clamp(.8rem,1.2vw,.98rem); color:var(--warn); font-weight:600; margin:.2vh 0 .2vh 3vw}
+  /* pipeline 流向箭頭：每列上方置中一個 ▼（絕對定位，flex/block 都一致） */
+  .wf{position:relative}
+  .wf > *{position:relative}
+  .wf > *:not(:first-child):not(.wfstop)::before{content:"▼"; position:absolute; top:-1.05em; left:24px; color:var(--accent); font-size:.62rem; line-height:1; opacity:.75}
+  .wf > .wfg::before{color:var(--gold)}
+  .wf > .wfs.end::before{color:var(--ok)}
   /* 能力結構組織圖 */
   .orgchart{display:flex; flex-direction:column; align-items:center; gap:.7vh; margin-top:1.2vh; width:100%; max-width:62em}
   .org-node{width:100%; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1.4vh 1.3vw; text-align:center}
@@ -428,6 +436,8 @@
     .scrollx{width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch}
     .scrollx>table{min-width:max-content}
     .cmp,.usertype{min-width:max-content}
+    /* 表格格子不換行 → 表格變寬 → 可橫向拖動（不再被截斷） */
+    .scrollx table td,.scrollx table th{white-space:nowrap}
     /* 卡片列改直排／兩欄 */
     .two,.choices,.kw.grid2,.personas,.appl,.mines{grid-template-columns:1fr}
     .skills-5{grid-template-columns:repeat(2,1fr)}
@@ -442,7 +452,7 @@
     h1{font-size:1.9rem} h2{font-size:1.45rem}
     .term .body{font-size:.8rem}
     #hud{font-size:.75rem}
-    #seghud{max-width:46vw; font-size:.72rem}
+    #seghud{display:none}
     .navhint{display:none}
   }
   /* ---- 列印 / PDF 匯出：每張各自成頁、揭示答案一併印出 ---- */
@@ -508,7 +518,7 @@
 <!-- AI 素養測驗 ①.5：這是不是 AI？（Elements of AI Exercise 1） -->
 <section class="slide aiquiz" data-seg="開場 · AI 素養測驗①.5" data-notes="改編自 Elements of AI 的 Exercise 1「Is this AI or not?」。五個例子判斷是不是 AI。答對每題 +1 分（併入總分）。正解：試算表=不是；股市擬合=算半個；GPS 路線=算半個；Spotify 推薦=是；大數據儲存=不是。重點：AI 的判準是『會不會從資料學習、自適應/自主』，不是『用了電腦/演算法』。">
   <span class="seg-tag">開場 · AI 素養測驗 ①.5：這是不是 AI？</span>
-  <h2>這是不是 AI？（改編自 Elements of AI）</h2>
+  <h2>這是不是 AI？</h2>
   <div class="quizset">
     <div class="qq" data-type="know"><div class="qt">試算表計算加總等<b>預設函數</b></div>
       <div class="qopts"><span class="qopt" data-pt="0">是 AI</span><span class="qopt" data-c="1" data-pt="1">不是</span><span class="qopt" data-pt="0">算半個</span></div>
