@@ -421,26 +421,29 @@
   .tleaf small{display:block; font-weight:500; color:var(--ink-soft); font-size:.8rem; margin-top:.2em}
   .scrollx{overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%}
   @media(max-width:760px){
-    .slide{padding:9vh 6vw 14vh; overflow-y:auto; justify-content:flex-start}
-    .ai-out,.scrollx{overflow-x:auto; -webkit-overflow-scrolling:touch}
-    .demo table,.cmp,.usertype{min-width:max-content}
-    .personas,.appl,.skills-5{grid-template-columns:1fr}
-    .mines,.choices{grid-template-columns:1fr}
+    html,body{overflow-x:hidden}
+    .slide{padding:9vh 5vw 14vh; overflow-y:auto; overflow-x:hidden; justify-content:flex-start; align-items:stretch}
+    /* 讓所有巢狀 flex/block 容器可縮到螢幕寬，寬表格才會出現橫向捲軸 */
+    .slide *{min-width:0}
+    .scrollx{width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch}
+    .scrollx>table{min-width:max-content}
+    .cmp,.usertype{min-width:max-content}
+    /* 卡片列改直排／兩欄 */
+    .two,.choices,.kw.grid2,.personas,.appl,.mines{grid-template-columns:1fr}
+    .skills-5{grid-template-columns:repeat(2,1fr)}
     .quizset .qopts{flex-wrap:wrap}
-    .wf .wfg .lb{margin-left:0}
-    .two,.choices,.kw.grid2{grid-template-columns:1fr}
-    /* 橫向圖表在手機改直向堆疊 */
-    .flow,.stages,.tbranchrow,.mcphub,.spectrum,.map,.graph .grow,.appl{flex-direction:column; display:flex}
-    .appl,.map{display:flex}
-    .flow .ar,.stages .ar{transform:rotate(90deg); align-self:center}
+    .wf .wfg{flex-wrap:wrap} .wf .wfg .lb{margin-left:0}
+    /* 橫向圖表改直向堆疊 */
+    .flow,.stages,.mcphub,.spectrum,.map,.pipeflow,.org-mid{flex-direction:column; display:flex}
+    .flow .ar,.stages .ar,.pipeflow .pgate{transform:rotate(90deg); align-self:center}
     .mcphub .tools{grid-template-columns:1fr}
     .mcphub .conn{transform:rotate(90deg)}
-    .tbranch,.fb,.gnode,.spectrum .st{max-width:100%; width:100%}
-    h1{font-size:2rem} h2{font-size:1.5rem}
-    .term .body{font-size:.82rem}
-    #hud{font-size:.8rem}
+    .fb,.spectrum .st,.pipeflow .pstep,.org-mid .org-node{max-width:100%; width:100%}
+    h1{font-size:1.9rem} h2{font-size:1.45rem}
+    .term .body{font-size:.8rem}
+    #hud{font-size:.75rem}
+    #seghud{max-width:46vw; font-size:.72rem}
     .navhint{display:none}
-    #seghud{max-width:52vw}
   }
   /* ---- 列印 / PDF 匯出：每張各自成頁、揭示答案一併印出 ---- */
   @media print{
