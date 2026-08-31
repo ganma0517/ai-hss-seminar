@@ -494,6 +494,22 @@
   <div class="title-qr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUgAAAFIAQMAAAAI2vVwAAAABlBMVEUWGiT///91VskRAAAB0UlEQVR42u2bwW7DMAxDif3/P3NFY0l0sEPoSweUWdGlqU9vkkjJHvj0QlZm5SdW4rpet+/395O+7W/5g6fXN69Ewb8w8oK5fs+fJjwdnh2d6yMrNtlRG542T9Zb5f/1Cs/T+GRFJbdMD8/D+rmK5npcNFM/XZ6j73/9RN9Nnm2dKunZBVW/Dk+HJ9CWqfzSpvHh6fDEdAAbRKywReLT4LlqKFFRuURqVdd1E57P/dLUzOo4G+hqmsLT0Hei6+f4UEi4Jt9tP1+1kp3rovPRd89/copnF1LsfWd4Gvk+BGesJK1o4tPTd0ynSVEgbJoUnkZ8jtMcS6oONDxNPZpW6T74RPojtz9qQZoGnrcJc3ia85CyRb13hBnaJ9/N+KSQwxafMw4NT6vfVFWXpnPGzOFp+HlKHYUYKDH74Wn5JenkZQ6K6e7D83G+d6spxxcg4+Xokcmzh587xiX0qZ+2nyd3OZ+pCLNffBKfkAI683mN0fC0/Dy3WR23bY/sb5p+qQZN4kRrSynnQ3B4PkQGIG07ZYMzPJ350r0zoi5JfB7xLAGiiBP7hFh42jxVgTBHRLJffHi+TjJdjjEhPM/0Hdi25eYgfXie+M/810ZW/ruVvxCtTC0Sn57PAAAAAElFTkSuQmCC" alt="QR：簡報連結"><div class="tq-tx">📱 掃 QR Code 看互動簡報<br><b>ganma0517.github.io/ai-hss-seminar</b></div></div>
 </section>
 
+<!-- 工作坊議程 -->
+<section class="slide" data-seg="開場 · 工作坊議程" data-notes="說明本場定位：這是「AI 論文寫作工作坊」下午 14:00–16:00 的場次。上午賴定佾談 AI 工作流程的制度化，下午我談不確定性與幻覺。主辦：中研院政治所、社會所。2026-08-28，人社大樓南棟 820 會議室。">
+  <span class="seg-tag">開場 · 工作坊議程</span>
+  <h2>AI 論文寫作工作坊</h2>
+  <div class="sub">2026 年 8 月 28 日（週五）10:00–16:00　·　中央研究院人文社會科學大樓南棟 8 樓 820 會議室</div>
+  <div class="scrollx">
+    <table>
+      <tr><th>時間</th><th>議程</th><th>講者</th></tr>
+      <tr><td>09:30–10:00</td><td>報到</td><td>—</td></tr>
+      <tr><td>10:00–12:00</td><td>事故長出規則，規則長出信任：AI 工作流程的制度化</td><td>賴定佾　中研院政治所</td></tr>
+      <tr><td>12:00–14:00</td><td>午餐</td><td>—</td></tr>
+      <tr style="background:var(--accent-soft)"><td>14:00–16:00</td><td>不確定性與幻覺：人文社會科學如何應用 AI 技術　<b style="color:var(--accent)">← 本場</b></td><td>林文正　中研院社會所</td></tr>
+    </table>
+  </div>
+</section>
+
 <!-- AI 素養測驗 ①：知識題 -->
 <section class="slide aiquiz" data-seg="開場 · AI 素養測驗①" data-notes="AI 素養測驗上半：四題知識題（Elements of AI 觀念）。唸題、聽眾喊答案、點揭示。答對每題 +1 分。下一張問使用習慣，最後算總分給等級。答案：Q1 每次相同輸出、Q2 以上皆不能、Q3 RAG、Q4 把你要什麼說清楚。">
   <span class="seg-tag">開場 · AI 素養測驗 ①：知識題</span>
@@ -793,6 +809,93 @@
     </div>
   </div>
   <p class="sub">策略：把你<b>內隱的判斷</b>外顯成 AI 能執行的規則，這就是後面每一個 skill 的建構基礎。</p>
+</section>
+
+<!-- ===== 段 C 延伸：幻覺分類、對策、跨AI驗證、設計原則 ===== -->
+
+<!-- C-3: 幻覺六種臉孔 -->
+<section class="slide" data-seg="C · 幻覺的六種臉孔" data-mins="10" data-notes="六種幻覺是段 A demo 的系統化整理。強調不同類型需要不同對策：引用/事實幻覺有外部工具可查驗；推論幻覺靠學科判斷；時效幻覺靠接地；立場/人設幻覺靠設計意識。共同結構讓學員知道對症下藥比一招通吃更重要。">
+  <span class="seg-tag">段 C · 幻覺分類 <span class="mins">10 分</span></span>
+  <h2>幻覺的六種臉孔，識別方法各不同</h2>
+  <div class="spectrum">
+    <div class="st"><div class="k">① 引用幻覺</div><div class="d">DOI 404、作者混搭、期刊真卷期假。<b>外部工具可查驗</b>，有標準答案。</div></div>
+    <div class="st"><div class="k">② 事實幻覺</div><div class="d">統計數字、法條、事件細節捏造。<b>真相存在</b>，但要找對一級來源。</div></div>
+    <div class="st"><div class="k">③ 推論幻覺</div><div class="d">邏輯步驟看起來對、結論錯。<b>學科判斷才能抓</b>，工具幫不上忙。</div></div>
+    <div class="st q"><div class="k">④ 時效幻覺</div><div class="d">用截止訓練前的資料回答「最新」問題。問知識截止日、用 RAG 接近期文獻。</div><span class="tag">接地可修</span></div>
+    <div class="st q"><div class="k">⑤ 立場幻覺</div><div class="d">換 prompt 關鍵詞得出相反立場（→ Demo ③）。不是意見不同，是你的提示詞決定了結論。</div><span class="tag">設計問題</span></div>
+    <div class="st q"><div class="k">⑥ 人設幻覺</div><div class="d">捏造特定族群的第一人稱聲音（→ Demo ④）。給你一個聽起來真實的假聲音。</div><span class="tag">Silicon Sampling</span></div>
+  </div>
+  <p class="sub">①②→工具查驗；③→學科判斷；④→RAG 接地；⑤⑥→設計意識。<b>不是一招全解，要對症下藥。</b></p>
+</section>
+
+<!-- C-4: 對策矩陣 -->
+<section class="slide" data-seg="C · 幻覺對策矩陣" data-mins="10" data-notes="每種幻覺一套對策。重點：工具層解外部可查的（DOI/CrossRef/Scite）；邏輯層解推論問題（Evidence Ledger、謬誤自檢）；設計層解系統性偏誤（cross-ai、system prompt 設計）。讓學員看到具體工具對應，不是抽象建議。">
+  <span class="seg-tag">段 C · 對策矩陣 <span class="mins">10 分</span></span>
+  <h2>每種幻覺，對應一套工具</h2>
+  <div class="scrollx"><table class="cmp">
+    <thead><tr><th>類型</th><th>識別症狀</th><th>主要對策</th><th>成功標準</th></tr></thead>
+    <tbody>
+      <tr><td>① 引用幻覺</td><td>DOI 404、作者混搭</td><td>CrossRef、Scite、Zotero 逐筆查驗</td><td>每個 DOI 解析成功、未撤稿</td></tr>
+      <tr><td>② 事實幻覺</td><td>數字可信但找不到出處</td><td>要求原始來源；MCP Scite 搜尋核對</td><td>每個一次性敘述可追溯到可查驗資料</td></tr>
+      <tr><td>③ 推論幻覺</td><td>結論超過資料支持範圍</td><td>Evidence Ledger（標 causal／correlational）；謬誤自檢</td><td>每個因果宣稱有對應識別策略</td></tr>
+      <tr class="hi"><td>④ 時效幻覺</td><td>「最新研究」其實是兩年前</td><td>問模型知識截止日；RAG 接近期文獻</td><td>回答注明知識截止時間</td></tr>
+      <tr class="hi"><td>⑤ 立場幻覺</td><td>換 prompt 結論相反</td><td>比較 A/B 版本；要求 AI 列反方論點</td><td>AI 能同時呈現對立論證，不只強化你的立場</td></tr>
+      <tr class="hi"><td>⑥ 人設幻覺</td><td>聽起來真實的第一人稱</td><td>拒絕 silicon sampling；只用真實調查資料</td><td>只引受訪者原話或可追溯數據</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub">記憶訣：<b>查工具</b>→①②；<b>靠判斷</b>→③；<b>接地</b>→④；<b>重設計</b>→⑤⑥。</p>
+</section>
+
+<!-- C-5: 跨 AI 驗證 -->
+<section class="slide" data-seg="C · 跨 AI 驗證" data-mins="10" data-notes="cross-ai-check skill 的設計原理：原材料送給其他 AI 但不告知第一個 AI 的答案（防止錨定）。核心洞見：分歧＝不確定性訊號，是優先順序排列器而非最後防線。關鍵限制：共識幻覺（所有 AI 都從相同訓練語料學到同一個錯誤）無法靠跨 AI 解決——讓學員理解這不是萬能藥。實證數字用模糊語氣說，正好示範本場結論：不確定就說不確定。">
+  <span class="seg-tag">段 C · 跨 AI 驗證（cross-ai-check）<span class="mins">10 分</span></span>
+  <h2>跨 AI 驗證：用「不一致」找「不確定」</h2>
+  <div class="two">
+    <div class="col">
+      <h3>怎麼運作</h3>
+      <p>① 只把<b>原始材料</b>送給其他 AI（不告訴它第一個 AI 說了什麼，避免錨定）</p>
+      <p>② 收集各模型的<b>分歧點</b>，而非尋找共識</p>
+      <p>③ <b>分歧 ＝ 不確定性訊號</b> → 觸發人工查驗</p>
+      <p style="margin-top:.8em">三種模式：程式碼審查 ／ 事實查核 ／ 推論邏輯</p>
+    </div>
+    <div class="col hi">
+      <h3>能降低多少幻覺？</h3>
+      <p>✅ <b>有效</b>：不同模型有不同知識盲點。可查驗事實問題，集成方法<b>大約降低 20–40%</b> 錯誤（實驗室環境近似值，依問題類型差異很大）</p>
+      <p style="margin-top:.6em">❌ <b>無效</b>：<b>共識幻覺</b>——多個 AI 都從相同訓練語料學到同一個錯誤，會得到多個一致的假答案，反而讓人更信任</p>
+      <p style="margin-top:.6em;font-size:.9em;color:var(--ink-soft)">⚠ 以上數字本身就有不確定性——請用原始來源核實，別只信這張投影片。</p>
+    </div>
+  </div>
+  <p class="sub">跨 AI 驗證是<b>優先順序排列器</b>，不是最後防線：把最需要人工核查的宣稱浮到表面，讓你知道把力氣花在哪裡。</p>
+</section>
+
+<!-- C-6: 讓AI說不確定（段 C 結論） -->
+<section class="slide" data-seg="C · 設計原則" data-mins="10" data-notes="段 C 結論。反轉框架：問題不是讓 AI 更聰明，而是設計一個會說不確定的系統。三步：system prompt 要求標不確定性 → gate 攔截低信心宣稱 → 校準的 AI 能說不知道。最終一句：負責說不確定的不只是 AI，而是你設計的系統。呼應段 B 核心（校準問題）和段 C 整體（把紀律寫成規則）。">
+  <span class="seg-tag">段 C · 設計原則：不確定性管理 <span class="mins">10 分</span></span>
+  <h2>讓 AI 說「我不確定」，而非捏造</h2>
+  <p class="big-quote">問題從來不是讓 AI 更聰明，而是讓它在不知道的時候<span class="hl">說不知道</span>，而不是猜一個聽起來正確的答案。</p>
+  <div class="stages">
+    <div class="sg">
+      <div class="sh">① System Prompt</div>
+      <div class="it">「不確定時請明確說明，不要猜測」</div>
+      <div class="it">「每個宣稱標明依據類型：descriptive／correlational／causal」</div>
+      <div class="it muted">一次寫好、每次自動生效</div>
+    </div>
+    <div class="ar">→</div>
+    <div class="sg">
+      <div class="sh">② Gate 攔截</div>
+      <div class="it">跨 AI 分歧 → 人工查驗</div>
+      <div class="it">Evidence Ledger 紅旗 → 核查再通過</div>
+      <div class="it">DOI 查不到 → 整段重寫</div>
+    </div>
+    <div class="ar">→</div>
+    <div class="sg answer">
+      <div class="sh">③ 結果：校準的 AI</div>
+      <div class="it">能說「這個來源我無法查驗」</div>
+      <div class="it">能說「這個宣稱的因果機制不清楚」</div>
+      <div class="it"><b>「不確定」比「看起來正確的假答案」更有研究價值</b></div>
+    </div>
+  </div>
+  <p class="sub">負責說「不確定」的不只是 AI，而是<b>你設計的系統</b>——system prompt、gate、Evidence Ledger。這是把學科紀律寫成規則的最終目的。</p>
 </section>
 
 <!-- ===== 段 D Claude 內涵 Andrew Ng ===== -->
